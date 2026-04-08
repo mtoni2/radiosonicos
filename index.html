@@ -39,20 +39,23 @@
         }
         
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin-bottom: 25px;
             color: #aaa;
+            padding: 0 15px; /* Evita que el texto toque bordes */
         }
 
+        /* AJUSTE: El reproductor ahora es más angosto y no toca los bordes */
         .player-wrapper {
-            width: 90%;
-            max-width: 450px; 
+            width: 80%; /* Bajamos del 90% al 80% */
+            max-width: 380px; /* Bajamos de 450px a 380px */
             padding: 15px;
             background-color: var(--card-bg);
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
             border: 1px solid #444;
             margin-bottom: 20px;
+            box-sizing: border-box; /* Asegura que el padding no lo estire */
         }
 
         audio {
@@ -116,10 +119,12 @@
     <h1>📻 Radiosonicos</h1>
     <p class="subtitle">¡La música que marcó una época! Sonando 24/7.</p>
     
-    <audio controls autoplay>
-    <source src="http://82.145.41.8:35021/;stream.mp3" type="audio/mpeg">
-    Tu navegador no soporta el audio.
-    </audio>
+    <div class="player-wrapper">
+        <audio controls autoplay>
+            <source src="http://78.129.237.51:29754/;stream.mp3" type="audio/mpeg">
+            Tu navegador no soporta el audio.
+        </audio>
+    </div>
 
     <p class="status-message">Conéctate y disfruta de la mejor música</p>
 
