@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radiosonicos - Tu Radio Online</title>
     <style>
-        /* Variables y Reset Básico */
         :root {
             --bg-color: #1a1a1a;
             --accent-color: #ff9900;
             --text-color: #e0e0e0;
             --card-bg: #2b2b2b;
-            --logo-color: #555; /* Gris para el carrusel */
+            --logo-color: #555;
             --logo-spacing: 50px;
-            --scroll-speed: 25s; /* Velocidad del carrusel */
+            --scroll-speed: 25s;
         }
 
-        /* Estilos para centrar y fondo */
         body {
             display: flex;
             flex-direction: column;
@@ -37,7 +35,6 @@
             margin-bottom: 5px; 
             color: var(--accent-color); 
             text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
-            /* AUMENTO DEL MARGEN NEGATIVO PARA SUBIRLO MÁS */
             margin-top: -30px; 
         }
         
@@ -47,7 +44,6 @@
             color: #aaa;
         }
 
-        /* Contenedor del reproductor */
         .player-wrapper {
             width: 90%;
             max-width: 450px; 
@@ -59,13 +55,11 @@
             margin-bottom: 20px;
         }
 
-        /* Estilos del reproductor de audio nativo */
         audio {
             width: 100%;
             filter: invert(1);
         }
         
-        /* Mensaje de estado */
         .status-message {
             margin-top: 10px;
             font-size: 1em;
@@ -73,22 +67,7 @@
             font-weight: bold;
             animation: pulse 2s infinite;
         }
-        
-        /* Estilos para la sección de contacto */
-        .contact-info {
-            margin-top: 30px;
-            font-size: 1.0em;
-            padding: 10px;
-            color: #ccc;
-        }
-        
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
 
-        /* --- Estilos para el Carrusel de Marcas --- */
         .marquee-container {
             width: 100%;
             margin-top: 40px;
@@ -97,17 +76,11 @@
             border-bottom: 1px solid #333;
             overflow: hidden; 
             white-space: nowrap; 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .marquee-content {
             display: inline-block;
             animation: marquee var(--scroll-speed) linear infinite;
-            padding-right: var(--logo-spacing);
-        }
-
-        .marquee-content:hover {
-            animation-play-state: paused;
         }
 
         .brand-logo {
@@ -117,27 +90,18 @@
             font-weight: bold;
             margin: 0 var(--logo-spacing);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* Animación: Mueve el contenido de derecha a izquierda */
         @keyframes marquee {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
-        /* --- Fin Estilos Carrusel --- */
 
-        /* Estilos para el pie de página (información legal/técnica) */
         footer {
             margin-top: 20px;
             font-size: 0.8em;
             color: #666;
             padding: 10px;
-            max-width: 450px;
-        }
-
-        footer p {
-            margin: 5px 0;
         }
 
         @keyframes pulse {
@@ -153,17 +117,13 @@
     <p class="subtitle">¡La música que marcó una época! Sonando 24/7.</p>
     
     <div class="player-wrapper">
-        <source src="http://82.145.41.8:35021/stream/;?type=http&nocache=1" type="audio/mpeg">
+        <audio controls autoplay>
+            <source src="http://82.145.41.8:35021/;stream" type="audio/mpeg">
+            Tu navegador no soporta el audio.
+        </audio>
     </div>
 
     <p class="status-message">Conéctate y disfruta de la mejor música</p>
-
-    <div class="player-wrapper">
-        <audio controls autoplay>
-            <source src="http://uk21freenew.listen2myradio.com/live.mp3?typeportmount=s1_35021_stream_665363343" type="audio/mp3">
-            Tu navegador no soporta el elemento de audio. Por favor, actualiza.
-        </audio>
-    </div>
 
     <div class="marquee-container">
         <div class="marquee-content" id="brandMarquee">
@@ -175,6 +135,7 @@
             <span class="brand-logo">Automotriz</span>
         </div>
     </div>
+
     <footer>
         <p>© 2026 Radiosonicos. Todos los derechos reservados.</p>
         <p>Stream en alta calidad | Desarrollado por Marcelo Tonini.</p>
@@ -183,13 +144,11 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const marquee = document.getElementById('brandMarquee');
-            // Duplicamos el contenido interno (la lista de marcas) y lo añadimos
             marquee.innerHTML += marquee.innerHTML;
         });
     </script>
 
 </body>
-
 </html>
 
 
